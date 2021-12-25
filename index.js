@@ -3,6 +3,8 @@ import {setupDino, updateDino,getDinoRects,setDinoLose} from "./dino.js"
 import{updateCactus,setupCactus,getCactusRects} from "./cactus.js"
 const worldElem = document.querySelector("[data-world]")
 const scoreElem = document.querySelector("[data-score]")
+const lvlElem=document.querySelector("[data-lvl]")
+
 const startScreenElem = document.querySelector("[data-start-screen]")
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
@@ -14,6 +16,8 @@ setupGround()
 let lastTime
 let speedScale
 let score
+let lvl
+
 function update(time){
     if(lastTime==null){
         lastTime = time
@@ -31,8 +35,10 @@ function update(time){
     window.requestAnimationFrame(update)
 }
 function checkLose(){
+   
     const dinoRect = getDinoRects()
     return getCactusRects().some(rect=>isCollision(rect,dinoRect))
+  
 }
 function isCollision(rect1,rect2){
     return (rect1.left < rect2.right &&
@@ -46,10 +52,20 @@ function updateSpeedScale(delta){
 function updateScore(delta){
     score += delta * 0.01
     scoreElem.textContent = Math.floor(score)
+    lvlElem.textContent = lvl
+
+    if( scoreElem.textContent%50==0 && scoreElem.textContent>0){
+        let audio = new Audio('./score.mp3');
+        audio.play()
+        lvl++
+    }
+    
 }
+    
 function handleStart(){
     lastTime =null
     speedScale = 1
+    lvl=0
     score =0
     setupGround()
     setupDino()
@@ -73,5 +89,6 @@ function handleLose(){
         document.addEventListener("keydown",handleStart,{once:true})
         startScreenElem.classList.remove("hide")
     },100)
-    
+    let audio = new Audio('./block.mp3')
+    audio.play()
 }

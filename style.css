@@ -14,15 +14,33 @@ body{
     position: relative;
     
 }
+#level{
+    position: absolute;
+    top:0.8vmin;
+    right:3rem;
+    font-size: 1.5rem;
+}
+.lvl{
+    position: absolute;
+    top:0.8vmin;
+    right:1rem;
+    font-size: 1.5rem;
+}
+#score{
+    position:absolute;
+    left:1vmin;
+    top:1vmin;
+    font-size:1.5rem;
+}
 .score{
     position: absolute;
-    font-size:3vmin;
-    right:1vmin;
+   left:5rem;
     top:1vmin;
+    font-size:1.5rem;
 }
 .start-screen{
     position: absolute;
-    font-size:5vmin;
+    font-size:1.5rem;
     font-weight: bold;
     color:red;
     top:40px;

@@ -60,7 +60,8 @@ let currentFrameTime
 
 function onJump(e){
     if(e.code !== "Space" || isJumping) return
-
+    let audio = new Audio("./jump.mp3")
+    audio.play()
     yVelocity = JUMP_SPEED
     isJumping = true
 }
