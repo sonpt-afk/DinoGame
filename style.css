@@ -32,6 +32,28 @@ body{
     top:1vmin;
     font-size:1.5rem;
 }
+.user{
+    position:absolute;
+    right:50px;
+    padding:10px;
+    top:40px;
+    font-size:1.5rem;
+    color:black;
+    text-decoration: none;
+}
+#signup{
+    color:red;
+    padding:10px;
+    background-color:white;
+    cursor:pointer;
+}
+#login{
+    padding:10px;
+    background-color:white;
+    color:blue;
+    cursor:pointer;
+}
+
 .score{
     position: absolute;
    left:5rem;
@@ -39,13 +61,12 @@ body{
     font-size:1.5rem;
 }
 .start-screen{
-    position: absolute;
+    display:grid;
+    place-items:center;
     font-size:1.5rem;
     font-weight: bold;
     color:red;
-    top:40px;
-    left:50%;
-    transform: translate(-50%,-50%);
+    top:1px;
 }
 .hide{
     display: none;

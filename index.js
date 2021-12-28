@@ -4,7 +4,6 @@ import{updateCactus,setupCactus,getCactusRects} from "./cactus.js"
 const worldElem = document.querySelector("[data-world]")
 const scoreElem = document.querySelector("[data-score]")
 const lvlElem=document.querySelector("[data-lvl]")
-
 const startScreenElem = document.querySelector("[data-start-screen]")
 const WORLD_WIDTH = 100
 const WORLD_HEIGHT = 30
@@ -34,6 +33,7 @@ function update(time){
     lastTime = time
     window.requestAnimationFrame(update)
 }
+f
 function checkLose(){
    
     const dinoRect = getDinoRects()
@@ -88,7 +88,9 @@ function handleLose(){
     setTimeout(()=>{
         document.addEventListener("keydown",handleStart,{once:true})
         startScreenElem.classList.remove("hide")
+
     },100)
     let audio = new Audio('./block.mp3')
     audio.play()
+    window.alert("Oops , dino is so sad , but nice try. Again ?")
 }
